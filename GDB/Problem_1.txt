@@ -1,0 +1,19 @@
+The following program has buffer overflow vulnerability, 
+use GDB to diagnose and write the steps used during the analysis.
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void foo(char* str)
+{
+  char buffer[12];
+  strcpy(buffer, str);
+}
+
+int main(int argc, char*argv[])
+{
+  foo(argv[5]);
+  printf("returned properly\n\n");
+  return 0;
+}
